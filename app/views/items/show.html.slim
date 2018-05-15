@@ -1,0 +1,30 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @item.name
+
+p
+  strong Price:
+  = @item.price
+
+p
+  strong Purchase date:
+  = @item.purchase_date
+
+p
+  strong Memo:
+  = @item.memo
+
+p
+  strong Location:
+  = @item.location.name
+
+p
+  strong Category:
+  = @item.category.name
+
+= image_tag @item.image1.url if @item.image1.present?
+
+= link_to 'Edit', edit_item_path(@item)
+= link_to 'Back', items_path

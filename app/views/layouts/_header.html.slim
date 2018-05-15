@@ -1,0 +1,18 @@
+nav
+  .nav-wrapper
+    = link_to 'logo', root_path
+    ul#nav-mobile.right.hide-on-med-and-down
+      - if user_signed_in?
+        li
+          = link_to 'モノ', items_path
+        li
+          =< link_to '分類', categories_path
+        li
+          =< link_to '保管場所', locations_path
+        li
+          =< link_to 'サインアウト', destroy_user_session_path , method: :delete
+      - else
+        li 
+          = link_to 'サインアップ', new_user_registration_path
+        li 
+          = link_to 'ログイン', new_user_session_path
