@@ -45,6 +45,7 @@ gem 'simple_form'
 gem 'ransack'
 gem 'kaminari'
 gem 'seed-fu'
+gem 'gon'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
