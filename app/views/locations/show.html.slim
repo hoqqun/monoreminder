@@ -4,6 +4,10 @@ p
   strong
     | Name:
   = @location.name
+
+  .row
+    .col.l12
+      = image_tag @location.image.url, class: "responsive-img" if @location.image.present?
 = link_to 'Edit', edit_location_path(@location)
 |  | 
 = link_to 'Back', locations_path

@@ -27,7 +27,7 @@ class CategoriesController < ApplicationController
   # POST /categories
   # POST /categories.json
   def create
-    @category = User.find(current_user.id).locations.build(location_params)
+    @category = User.find(current_user.id).categories.build(category_params)
 
     respond_to do |format|
       if @category.save
