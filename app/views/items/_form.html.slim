@@ -15,14 +15,19 @@
       .col.l4
         = f.association :category, collection: Category.where(user_id: current_user.id), value_method: :id, label_method: :name, include_blank: false, include_hidden: false
     .row
-      .col.l12
+      .col.l6
         = f.input :image1, as: :image
+      .col.l6
+        p id="preview1" class="responsive-img"
     .row
-      .col.l12
+      .col.l6
         = f.input :image2, as: :image
+      .col.l6
+        p id="preview2" class="responsive-img"
     .row
-      .col.l12
+      .col.l6
         = f.input :image3, as: :image
+        p id="previwe3" class="responsive-img"
     .row
       .col.l12
         = f.input :memo, as: :text
