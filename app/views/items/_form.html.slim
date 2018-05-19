@@ -1,39 +1,31 @@
-= form_with(model: item, local: true) do |form|
-  - if item.errors.any?
-    #error_explanation
-      h2
-        = pluralize(item.errors.count, "error")
-        |  prohibited this item from being saved:
-      ul
-        - item.errors.full_messages.each do |message|
-          li
-            = message
-  .field
-    = form.label :name
-    = form.text_field :name
-  .field
-    = form.label :price
-    = form.number_field :price
-  .field
-    = form.label :purchase_date
-    = form.date_select :purchase_date
-  .memo
-    = form.label :memo
-    = form.text_field :memo
-  .image1
-    = form.label :image1
-    = form.file_field :image1
-  .image2
-    = form.label :image2
-    = form.file_field :image2
-  .image3
-    = form.label :image3
-    = form.file_field :image3
-  .Location
-    = form.label :location_id
-    = form.collection_select :location_id, Location.all, :id, :name
-  .Category
-    = form.label :category_id
-    = form.collection_select :category_id, Category.all, :id, :name
-  .actions
-    = form.submit
+.container
+  = simple_form_for(@item) do |f|
+    .row
+      = f.error_notification
+    .row
+      .col.l4
+        = f.input :name
+      .col.l4
+        = f.input :price, as: :integer
+      .col.l4
+        = f.input :purchase_date, as: :string, input_html: {class: "datepicker"}
+    .row
+      .col.l4
+        = f.association :location, collection: Location.where(user_id: current_user.id), value_method: :id, label_method: :name, include_blank: false, include_hidden: false
+      .col.l4
+        = f.association :category, collection: Category.where(user_id: current_user.id), value_method: :id, label_method: :name, include_blank: false, include_hidden: false
+    .row
+      .col.l12
+        = f.input :image1, as: :file
+    .row
+      .col.l12
+        = f.input :image2, as: :file
+    .row
+      .col.l12
+        = f.input :image3, as: :file
+    .row
+      .col.l12
+        = f.input :memo, as: :text
+    .row
+      .col.l2
+        = f.button :submit, input_html:{class:"btn"}

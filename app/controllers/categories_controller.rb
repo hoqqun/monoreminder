@@ -5,7 +5,9 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.all
+    @q = Category.where(user_id: current_user.id).ransack(params[:q])
+    @categories = @q.result.page(params[:page]).per(20)
+
   end
 
   # GET /categories/1
@@ -25,7 +27,7 @@ class CategoriesController < ApplicationController
   # POST /categories
   # POST /categories.json
   def create
-    @category = Category.new(category_params)
+    @category = User.find(current_user.id).locations.build(location_params)
 
     respond_to do |format|
       if @category.save

@@ -1,0 +1,7 @@
+= search_form_for @q, url: items_path do |f|
+  .row
+    .col.l6
+      .input-field.inline
+        = f.text_field :name_cont
+      .input-field.inline
+        = f.submit "検索" , class: 'btn second'

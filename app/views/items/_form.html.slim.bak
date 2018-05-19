@@ -1,0 +1,39 @@
+= form_with(model: item, local: true) do |form|
+  - if item.errors.any?
+    #error_explanation
+      h2
+        = pluralize(item.errors.count, "error")
+        |  prohibited this item from being saved:
+      ul
+        - item.errors.full_messages.each do |message|
+          li
+            = message
+  .field
+    = form.label :name
+    = form.text_field :name
+  .field
+    = form.label :price
+    = form.number_field :price
+  .field
+    = form.label :purchase_date
+    = form.date_select :purchase_date
+  .memo
+    = form.label :memo
+    = form.text_field :memo
+  .image1
+    = form.label :image1
+    = form.file_field :image1
+  .image2
+    = form.label :image2
+    = form.file_field :image2
+  .image3
+    = form.label :image3
+    = form.file_field :image3
+  .Location
+    = form.label :location_id
+    = form.collection_select :location_id, Location.where(user_id: current_user.id), :id, :name
+  .Category
+    = form.label :category_id
+    = form.collection_select :category_id, Category.where(user_id: current_user.id), :id, :name
+  .actions
+    = form.submit

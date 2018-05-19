@@ -5,8 +5,8 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @search = Item.ransack(user_id_eq: current_user.id)
-    @items = @search.result
+    @q = Item.where(user_id: current_user.id).ransack(params[:q])
+    @items = @q.result.page(params[:page]).per(20)
   end
 
   # GET /items/1

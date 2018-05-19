@@ -1,31 +1,36 @@
-h1 Items
+.container
+  .row
+    h1 モノ一覧
+  = render 'search'
+  .row
+    table
+      thead
+        tr
+          th Name
+          th Price
+          th Purchase date
+          th memo
+          th Category
+          th Location
+          th.colspan "3"
+        
+      tbody
+        - @items.each do |item|
+          tr
+            td = item.name
+            td = item.price
+            td = item.purchase_date
+            td = item.memo
+            td = item.location.name
+            td = item.category.name
+            td = link_to 'Show', item
+            td = link_to 'Edit', edit_item_path(item)
+            td = link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }
+    br
 
-table
-  thead
-    tr
-      th Name
-      th Price
-      th Purchase date
-      th memo
-      th Category
-      th Location
-      th.colspan "3"
-     
-  tbody
-    - @items.each do |item|
-      tr
-        td = item.name
-        td = item.price
-        td = item.purchase_date
-        td = item.memo
-        td = item.location.name
-        td = item.category.name
-        td = link_to 'Show', item
-        td = link_to 'Edit', edit_item_path(item)
-        td = link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }
-
-br
-
-= link_to 'New Item', new_item_path
-|  | 
-= link_to 'back', :back
+  .row
+    = render 'paging'
+  .row
+    = link_to 'New Item', new_item_path
+    |  | 
+    = link_to 'back', :back
