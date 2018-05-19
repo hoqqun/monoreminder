@@ -191,7 +191,8 @@ SimpleForm.setup do |config|
     check_boxes: :materialize_multiple,
     radio_buttons: :materialize_multiple,
     switch: :material_checkbox,
-    file: :materialize_file_input
+    file: :materialize_file_input,
+    image: :materialize_file_input
   }
   # Namespaces where SimpleForm should look for custom input classes that
   # override default inputs.

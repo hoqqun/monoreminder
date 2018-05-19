@@ -16,13 +16,13 @@
         = f.association :category, collection: Category.where(user_id: current_user.id), value_method: :id, label_method: :name, include_blank: false, include_hidden: false
     .row
       .col.l12
-        = f.input :image1, as: :file
+        = f.input :image1, as: :image
     .row
       .col.l12
-        = f.input :image2, as: :file
+        = f.input :image2, as: :image
     .row
       .col.l12
-        = f.input :image3, as: :file
+        = f.input :image3, as: :image
     .row
       .col.l12
         = f.input :memo, as: :text
