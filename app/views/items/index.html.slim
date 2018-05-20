@@ -5,7 +5,7 @@
     = render 'search'
   .row
     - @items.each do |item|
-      .col.s4
+      .col.s12.m4.l4
         .card
           .card-image
             = image_tag item.image1.url, class: "responsive-img" if item.image1.present?
