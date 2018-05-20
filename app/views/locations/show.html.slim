@@ -8,6 +8,7 @@
     .row
       .col.l12
         = image_tag @location.image.url, class: "responsive-img" if @location.image.present?
+        = image_tag "nothing.jpg", class: "responsive-img" unless @location.image.present?
     .row
       .col.l3
         = link_to 'Edit', edit_location_path(@location), class:"btn"

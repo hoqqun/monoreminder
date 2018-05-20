@@ -1,0 +1,20 @@
+.container
+  .row
+    .col.s12
+      h2 ログイン
+  = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .row
+      .col.s12
+        = f.input :email, required: false, autofocus: true
+    .row
+      .col.s12
+        = f.input :password, required: false
+    .row
+      .col.s12
+        = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+    .row
+      .col.s12
+    .row
+      .col.s12
+        = f.button :submit, "ログイン", class: "blue"
+= render "devise/shared/links"

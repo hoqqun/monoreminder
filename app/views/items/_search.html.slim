@@ -1,7 +1,7 @@
-= search_form_for @q, url: items_path do |f|
-  .row
-    .col.l6
-      .input-field.inline
-        = f.text_field :name_cont
-      .input-field.inline
-        = f.submit "検索" , class: 'btn second'
+= simple_form_for @q, url: items_path, method: :get do |f|
+    .col.s4
+      = f.input :location_id_eq, as: :select, label: t('.location_id_eq'), collection: Location.where(user_id:current_user.id), value_method: :id, label_method: :name, propmt: '収納場所を選択'
+    .col.s4
+      = f.input :name_cont
+    .col.s4
+      = f.submit "検索" , class: 'btn second'

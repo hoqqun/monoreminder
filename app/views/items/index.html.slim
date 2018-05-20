@@ -1,34 +1,19 @@
 .container
   .row
     h1 モノ一覧
-  = render 'search'
   .row
-    table
-      thead
-        tr
-          th Name
-          th Purchase date
-          th image1
-          th image2
-          th image3
-          th colspan="3"
-        
-      tbody
-        - @items.each do |item|
-          tr
-            td = item.name
-            td = item.purchase_date
-            td = image_tag item.image1.url, class: "responsive-img" if item.image1.present?
-            td = image_tag item.image2.url, class: "responsive-img" if item.image2.present?
-            td = image_tag item.image3.url, class: "responsive-img" if item.image3.present?
-            td = link_to 'Show', item
-            td = link_to 'Edit', edit_item_path(item)
-            td = link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }
-    br
-
+    = render 'search'
   .row
-    = render 'paging'
-  .row
-    = link_to 'New Item', new_item_path
-    |  | 
-    = link_to 'back', :back
+    - @items.each do |item|
+      .col.s4
+        .card
+          .card-image
+            = image_tag item.image1.url, class: "responsive-img" if item.image1.present?
+            = image_tag "nothing.jpg", class: "responsive-img" unless item.image1.present?
+            span.card-title = item.name
+          .card-content
+            p = item.memo
+          .card-action
+            = link_to "詳細", item
+            = link_to "編集", edit_item_path(item)
+            = link_to '削除', item, method: :delete, data: { confirm: '削除してよろしいですか?' }

@@ -1,0 +1,34 @@
+.container
+  .row
+    h1 モノ一覧
+  = render 'search'
+  .row
+    table
+      thead
+        tr
+          th Name
+          th Purchase date
+          th image1
+          th image2
+          th image3
+          th colspan="3"
+        
+      tbody
+        - @items.each do |item|
+          tr
+            td = item.name
+            td = item.purchase_date
+            td = image_tag item.image1.url, class: "responsive-img" if item.image1.present?
+            td = image_tag item.image2.url, class: "responsive-img" if item.image2.present?
+            td = image_tag item.image3.url, class: "responsive-img" if item.image3.present?
+            td = link_to 'Show', item
+            td = link_to 'Edit', edit_item_path(item)
+            td = link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }
+    br
+
+  .row
+    = render 'paging'
+  .row
+    = link_to 'New Item', new_item_path
+    |  | 
+    = link_to 'back', :back

@@ -30,10 +30,13 @@
   .row
     .col.l4
       = image_tag @item.image1.url, class: "responsive-img" if @item.image1.present?
+      = image_tag "nothing.jpg", class: "responsive-img" unless @item.image1.present?
     .col.l4
       = image_tag @item.image2.url, class: "responsive-img" if @item.image2.present?
+      = image_tag "nothing.jpg", class: "responsive-img" unless @item.image1.present?
     .col.l4
       = image_tag @item.image3.url, class: "responsive-img" if @item.image3.present?
+      = image_tag "nothing.jpg", class: "responsive-img" unless @item.image1.present?
   .row      
     .col.l2
       = link_to 'Edit', edit_item_path(@item), class:"btn blue"

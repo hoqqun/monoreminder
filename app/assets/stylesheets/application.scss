@@ -4,3 +4,13 @@ $primary-color: color("green", "lighten-2") !default;
 @import "material_icons";
 @import "items";
 @import "homes";
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
