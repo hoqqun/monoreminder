@@ -19,6 +19,8 @@ ja:
         image1: 画像1
         image2: 画像2
         image3: 画像3
+        location: 保管場所
+        category: 分類
       category:
         <<: *defaults
         name: 分類名
@@ -26,3 +28,5 @@ ja:
         <<: *defaults
         name: 保管場所名
         image: 保管場所画像
+  activerecord:
+    <<: *activemodel

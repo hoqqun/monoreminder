@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "入力項目にエラーがあります。"
+  errors:
+    format: "%{attribute}%{message}"
+    messages:
+      blank: を入力してください。

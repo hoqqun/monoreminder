@@ -6,13 +6,15 @@
     thead
       tr
         th
-          | Name
+          | 保管場所名
         th[colspan="3"]
     tbody
       - @locations.each do |location|
         tr
           td
             = location.name
+          td
+            = image_tag location.image.url, class: "responsive-img" if location.image.present?
           td
             = link_to 'Show', location
           td

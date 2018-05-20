@@ -7,22 +7,20 @@
       thead
         tr
           th Name
-          th Price
           th Purchase date
-          th memo
-          th Category
-          th Location
-          th.colspan "3"
+          th image1
+          th image2
+          th image3
+          th colspan="3"
         
       tbody
         - @items.each do |item|
           tr
             td = item.name
-            td = item.price
             td = item.purchase_date
-            td = item.memo
-            td = item.location.name
-            td = item.category.name
+            td = image_tag item.image1.url, class: "responsive-img" if item.image1.present?
+            td = image_tag item.image2.url, class: "responsive-img" if item.image2.present?
+            td = image_tag item.image3.url, class: "responsive-img" if item.image3.present?
             td = link_to 'Show', item
             td = link_to 'Edit', edit_item_path(item)
             td = link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }

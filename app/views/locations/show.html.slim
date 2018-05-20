@@ -1,13 +1,15 @@
-p#notice
-  = notice
-p
-  strong
-    | Name:
-  = @location.name
-
+.container
   .row
-    .col.l12
-      = image_tag @location.image.url, class: "responsive-img" if @location.image.present?
-= link_to 'Edit', edit_location_path(@location)
-|  | 
-= link_to 'Back', locations_path
+  p
+    strong
+      | 保管場所名:
+    = @location.name
+
+    .row
+      .col.l12
+        = image_tag @location.image.url, class: "responsive-img" if @location.image.present?
+    .row
+      .col.l3
+        = link_to 'Edit', edit_location_path(@location), class:"btn"
+      .col.3
+        = link_to 'Back', locations_path, class:"btn"

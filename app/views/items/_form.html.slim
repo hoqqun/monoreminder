@@ -3,35 +3,36 @@
     .row
       = f.error_notification
     .row
-      .col.l4
+      .col.s6
         = f.input :name
-      .col.l4
+      .col.s6
         = f.input :price, as: :integer
-      .col.l4
+    .row
+      .col.s12
         = f.input :purchase_date, as: :string, input_html: {class: "datepicker"}
     .row
-      .col.l4
-        = f.association :location, collection: Location.where(user_id: current_user.id), value_method: :id, label_method: :name, include_blank: false, include_hidden: false
-      .col.l4
+      .col.s6
+        = f.association :location,  collection: Location.where(user_id: current_user.id), value_method: :id, label_method: :name, include_blank: false, include_hidden: false
+      .col.s6
         = f.association :category, collection: Category.where(user_id: current_user.id), value_method: :id, label_method: :name, include_blank: false, include_hidden: false
     .row
-      .col.l6
+      .col.s6
         = f.input :image1, as: :image
-      .col.l6
+      .col.s6
         p id="preview1" class="responsive-img"
     .row
-      .col.l6
+      .col.s6
         = f.input :image2, as: :image
-      .col.l6
+      .col.s6
         p id="preview2" class="responsive-img"
     .row
-      .col.l6
+      .col.s6
         = f.input :image3, as: :image
-      .col.l6
+      .col.s6
         p id="preview3" class="responsive-img"
     .row
-      .col.l12
+      .col.s12
         = f.input :memo, as: :text
     .row
-      .col.l2
+      .col.s2
         = f.button :submit, input_html:{class:"btn"}

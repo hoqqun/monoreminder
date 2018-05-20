@@ -25,4 +25,6 @@ class Item < ApplicationRecord
   mount_uploader :image1, ImagesUploader
   mount_uploader :image2, ImagesUploader
   mount_uploader :image3, ImagesUploader
+
+  validates :name, presence: true
 end
