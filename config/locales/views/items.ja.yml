@@ -1,2 +1,6 @@
 ja:
-  
+  items:
+    search:
+      location_id_eq: 収納場所
+      category_id_eq: 分類
+      name_cont: 名称

@@ -1,7 +1,7 @@
 .container
   .row
   h1
-    | 分類一覧
+    | 分類
   table
     thead
       tr
@@ -14,11 +14,11 @@
           td
             = category.name
           td
-            = link_to 'Show', category
+            = link_to '詳細', category
           td
-            = link_to 'Edit', edit_category_path(category)
+            = link_to '編集', edit_category_path(category)
           td
-            = link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
+            = link_to '削除', category, method: :delete, data: { confirm: 'Are you sure?' }
   br
   .row
     = link_to 'New Category', new_category_path

@@ -16,11 +16,11 @@
           td
             = image_tag location.image.url, class: "responsive-img" if location.image.present?
           td
-            = link_to 'Show', location
+            = link_to '詳細', location
           td
-            = link_to 'Edit', edit_location_path(location)
+            = link_to '編集', edit_location_path(location)
           td
-            = link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' }
+            = link_to '削除', location, method: :delete, data: { confirm: 'Are you sure?' }
   br
   .row
     = link_to 'New Location', new_location_path
