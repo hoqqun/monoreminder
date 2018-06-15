@@ -11,6 +11,6 @@
         = image_tag "nothing.jpg", class: "responsive-img" unless @location.image.present?
     .row
       .col.l3
-        = link_to 'Edit', edit_location_path(@location), class:"btn"
+        = link_to '編集する', edit_location_path(@location), class: 'btn'
       .col.3
-        = link_to 'Back', locations_path, class:"btn"
+        = link_to '戻る', locations_path, class: 'btn grey'

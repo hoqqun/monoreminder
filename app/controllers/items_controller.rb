@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @q = Item.where(user_id: current_user.id).ransack(params[:q])
+    @q.sorts = 'id desc'
     @items = @q.result.page(params[:page]).per(20)
   end
 

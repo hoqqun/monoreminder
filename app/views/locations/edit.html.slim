@@ -1,6 +1,7 @@
 h1
-  | Editing Location
+  | 保管場所を編集
 = render 'form', location: @location
-= link_to 'Show', @location
-|  | 
-= link_to 'Back', locations_path
+.row
+  = link_to 'Show', @location, class: 'btn'
+.row
+  = link_to 'Back', locations_path, class: 'btn grey'

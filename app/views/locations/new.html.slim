@@ -1,4 +1,7 @@
-h1
-  | New Location
-= render 'form', location: @location
-= link_to 'Back', locations_path
+.container
+  .row
+    h1
+      | 新規の保管場所
+    = render 'form', location: @location
+  .row
+    = link_to 'Back', locations_path, class: 'btn grey'

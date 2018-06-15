@@ -47,6 +47,7 @@ gem 'kaminari'
 gem 'seed-fu'
 gem 'gon'
 gem 'seed-fu'
+gem 'mini_magick'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

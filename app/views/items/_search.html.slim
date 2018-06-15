@@ -1,9 +1,9 @@
 = simple_form_for @q, url: items_path, method: :get do |f|
     .col.s3
-      = f.input :location_id_eq, as: :select, label: t('.location_id_eq'), collection: Location.where(user_id:current_user.id), value_method: :id, label_method: :name, prompt: '収納を選択'
+      = f.input :location_id_eq, as: :select, label: t('.location_id_eq'), collection: Location.where(user_id:current_user.id), value_method: :id, label_method: :name, include_blank: true
     .col.s3
-      = f.input :category_id_eq, as: :select, label: t('.category_id_eq'), collection: Category.where(user_id:current_user.id), value_method: :id, label_method: :name, prompt: '分類を選択'
+      = f.input :category_id_eq, as: :select, label: t('.category_id_eq'), collection: Category.where(user_id:current_user.id), value_method: :id, label_method: :name, include_blank: true
     .col.s3
-      = f.input :name_cont
+      = f.input :name_cont, label: t('.name_cont')
     .col.s3
       = f.submit "検索" , class: 'btn second'

@@ -3,7 +3,11 @@
     h1 モノ一覧
     
   .row
-    = render 'search'
+    .col.s10.m10.l10
+      = render 'search'
+    .col.s2.m2.l2
+      = link_to "追加する", new_item_path, class: "btn blue"
+
   .row
     - @items.each do |item|
       .col.s12.m4.l4
@@ -18,3 +22,4 @@
             = link_to "詳細", item
             = link_to "編集", edit_item_path(item)
             = link_to '削除', item, method: :delete, data: { confirm: '削除してよろしいですか?' }
+            p 売れるかも？
