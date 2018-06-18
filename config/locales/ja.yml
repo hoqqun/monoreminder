@@ -7,3 +7,8 @@ ja:
     format: "%{attribute}%{message}"
     messages:
       blank: を入力してください。
+  flash:
+    items:
+      create: "登録しました。"
+      update: "更新しました。"
+      destroy: "削除しました。"
