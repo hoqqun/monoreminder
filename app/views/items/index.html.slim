@@ -3,23 +3,31 @@
     h1 モノ一覧
     
   .row
-    .col.s10.m10.l10
+    .col
       = render 'search'
-    .col.s2.m2.l2
+  .row
+    .col
       = link_to "追加する", new_item_path, class: "btn blue"
 
-  .row
+  table
+    thead
+      tr
+        th
+        th
+        th
+        th
+        th
+    tbody
     - @items.each do |item|
-      .col.s12.m4.l4
-        .card
-          .card-image
-            = image_tag item.image1.url, class: "responsive-img" if item.image1.present?
-            = image_tag "nothing.jpg", class: "responsive-img" unless item.image1.present?
-            span.card-title = item.name
-          .card-content
-            p = item.memo
-          .card-action
-            = link_to "詳細", item
-            = link_to "編集", edit_item_path(item)
-            = link_to '削除', item, method: :delete, data: { confirm: '削除してよろしいですか?' }
-            p 売れるかも？
+      tr
+        td
+          = image_tag item.image1.url, width: "140px", height: "105px" if item.image1.present?
+          = image_tag "nothing.jpg", width:"140px", height: "105px" unless item.image1.present?
+        td
+          = link_to "詳細", item
+        td
+          = link_to "編集", edit_item_path(item)
+        td
+          = link_to '削除', item, method: :delete, data: { confirm: '削除してよろしいですか?' }
+        td
+          p 売れるかも？

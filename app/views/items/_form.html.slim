@@ -3,35 +3,41 @@
     = f.error_notification
   .row
     .col.s6
-      = f.input :name
-    .col.s6
-      = f.input :price, as: :integer
-  .row
-    .col.s12
-      = f.input :purchase_date, as: :string, input_html: {class: "datepicker"}
-  .row
-    .col.s6
-      = f.association :location,  collection: Location.where(user_id: current_user.id), value_method: :id, label_method: :name, include_blank: false, include_hidden: false
-    .col.s6
-      = f.association :category, collection: Category.where(user_id: current_user.id), value_method: :id, label_method: :name, include_blank: false, include_hidden: false
-  .row
-    .col.s6
       = f.input :image1, as: :image
     .col.s6
       p id="preview1" class="responsive-img"
   .row
     .col.s6
-      = f.input :image2, as: :image
-    .col.s6
-      p id="preview2" class="responsive-img"
-  .row
-    .col.s6
-      = f.input :image3, as: :image
-    .col.s6
-      p id="preview3" class="responsive-img"
-  .row
-    .col.s12
-      = f.input :memo, as: :text
+      = f.input :name
+  ul.collapsible
+    li
+      .collapsible-header
+        span 項目 その他
+      .collapsible-body
+        .row
+          .col.s6
+            = f.input :price, as: :integer
+        .row
+          .col.s12
+            = f.input :purchase_date, as: :string, input_html: {class: "datepicker"}
+        .row
+          .col.s6
+            = f.association :location,  collection: Location.where(user_id: current_user.id), value_method: :id, label_method: :name, include_blank: false, include_hidden: false
+          .col.s6
+            = f.association :category, collection: Category.where(user_id: current_user.id), value_method: :id, label_method: :name, include_blank: false, include_hidden: false
+        .row
+          .col.s6
+            = f.input :image2, as: :image
+          .col.s6
+            p id="preview2" class="responsive-img"
+        .row
+          .col.s6
+            = f.input :image3, as: :image
+          .col.s6
+            p id="preview3" class="responsive-img"
+        .row
+          .col.s12
+            = f.input :memo, as: :text
   .row
     .col.s2
       = f.button :submit, '登録する', class: 'blue', data: {confirm: '本当によろしいですか？'}

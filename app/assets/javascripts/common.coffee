@@ -5,3 +5,5 @@ $(document).on 'turbolinks:load', ->
   $('#item_image2').uploadThumbs({position: '#preview2'})
   $('#item_image3').uploadThumbs({position: '#preview3'})
   $('#location_image').uploadThumbs({position: '#preview'})
+  $('.collapsible').collapsible()
+        
