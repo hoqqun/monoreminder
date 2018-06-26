@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   #devise_for :views
-  root to: "homes#index"
   devise_for :users
+  root to: "homes#index"
   get 'homes/index'
   resources :locations
   resources :categories
